@@ -1,0 +1,29 @@
+<!--<form (ngSubmit)="register()">-->
+<!--  <label>-->
+<!--    Nombre de usuario:-->
+<!--    <input type="text" [(ngModel)]="username" name="username" required>-->
+<!--  </label>-->
+<!--  <label>-->
+<!--    Contraseña:-->
+<!--    <input type="password" [(ngModel)]="password" name="password" required>-->
+<!--  </label>-->
+<!--  <button type="submit">Registrarse</button>-->
+<!--</form>-->
+
+<div class="register-page">
+  <h2>Register</h2>
+  <form (submit)="register(username.value, email.value, password.value)">
+    <div>
+      <input type="text" #username placeholder="Username">
+    </div>
+    <div>
+      <input type="email" #email placeholder="Email">
+    </div>
+    <div>
+      <input type="password" #password placeholder="Password">
+    </div>
+    <div>
+      <button type="submit">Create account</button>
+    </div>
+  </form>
+</div>
