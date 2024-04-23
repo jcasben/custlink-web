@@ -1,12 +1,12 @@
 <!-- login.component.html -->
 <div class="login-page">
   <h2>Log In</h2>
-  <form (submit)="login(username.value, password.value)">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div>
-      <input type="text" #username placeholder="Username">
+      <input type="text" placeholder="Username" formControlName="username" />
     </div>
     <div>
-      <input type="password" #password placeholder="Password">
+      <input type="password" placeholder="Password" formControlName="password" />
     </div>
     <div>
       <button type="submit">Log In</button>
