@@ -38,7 +38,7 @@ export class LoginComponent {
       console.log('response', response as AuthResponse);
       localStorage.setItem('token', (response as AuthResponse).token);
       this.authService.currentUserSig.set(this.form.getRawValue() as User)
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/dashboard').then();
     });
   }
 }

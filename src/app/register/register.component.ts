@@ -38,7 +38,7 @@ export class RegisterComponent {
       console.log('response', response as AuthResponse);
       localStorage.setItem('token', (response as AuthResponse).token);
       this.authService.currentUserSig.set(this.form.getRawValue());
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/dashboard').then();
     });
   }
 }
