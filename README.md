@@ -20,8 +20,8 @@ This project is composed of a frontend and a backend. See the backend repository
 
 ## ⭐ Features
 
-- Account creation: users will be able to create an account, login and manage their account.
-- Manage links: users can create, update and deletes their links.
+- **Account creation:** users will be able to create an account, login and manage their account.
+- **Manage links:** users can create, update and deletes their links.
 
 ## What I've learned
 
