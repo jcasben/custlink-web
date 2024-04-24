@@ -2,7 +2,9 @@ import {Component, inject} from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../enviroments/environment";
-import {RegisterRequest} from "./RegisterRequest";
+import {AuthService} from "../auth/auth.service";
+import {Router} from "@angular/router";
+import {AuthResponse} from "../auth/AuthResponse";
 
 @Component({
   selector: 'app-register',
@@ -19,6 +21,8 @@ export class RegisterComponent {
   private serverUrl = environment.apiBaseUrl;
   fb = inject(FormBuilder);
   http = inject(HttpClient);
+  authService = inject(AuthService);
+  router = inject(Router);
 
   form = this.fb.nonNullable.group({
     username: ['', Validators.required],
@@ -27,12 +31,14 @@ export class RegisterComponent {
   });
 
   onSubmit(): void {
-    console.log(this.form.getRawValue());
-    this.http.post<{ user: RegisterRequest }>(
+    this.http.post(
       `${this.serverUrl}/auth/register`,
       this.form.getRawValue(),
     ).subscribe(response => {
-      console.log('response', response);
+      console.log('response', response as AuthResponse);
+      localStorage.setItem('token', (response as AuthResponse).token);
+      this.authService.currentUserSig.set(this.form.getRawValue());
+      this.router.navigateByUrl('/dashboard');
     });
   }
 }
