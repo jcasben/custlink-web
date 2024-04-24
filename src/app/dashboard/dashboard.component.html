@@ -1,0 +1,6 @@
+@if (authService.currentUserSig()) {
+  <div>
+    <h1>{{ authService.currentUserSig()?.username }}</h1>
+  </div>
+  <div><button>Log out</button></div>
+}
