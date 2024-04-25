@@ -16,24 +16,11 @@ import {User} from "../user/User";
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
 
   serverUrl = environment.apiBaseUrl;
   authService = inject(AuthService);
   http = inject(HttpClient);
-
-  ngOnInit(): void {
-    this.http.get<{ user: User }>(`${this.serverUrl}/users/user`)
-      .subscribe({
-        next: (response) => {
-          console.log('response', response.user);
-          this.authService.currentUserSig.set(response.user);
-        },
-        error: () => {
-          this.authService.currentUserSig.set(null);
-        },
-      });
-  }
 
   logout(): void {
     localStorage.setItem('token', '');
