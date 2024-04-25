@@ -1,7 +1,7 @@
 @for (link of links; track $index) {
   <div>
-    <h2>{{ link.owner }}/{{ link.name }}</h2>
+    <h2>{{ link.owner }}/{{ link.name }} <button (click)="copyLink(link)">Copy</button></h2>
     <p>{{ link.url }}</p>
-    <button (click)="deleteLink(link.name)">Delete</button> <button (click)="copyLink(link)">Copy</button>
+    <button (click)="deleteLink(link.name)">Delete</button>
   </div>
 }
