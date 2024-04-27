@@ -5,3 +5,18 @@
   justify-content: center;
   height: 100vh;
 }
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  border: 2px solid antiquewhite;
+  border-radius: 10px;
+}
+
+.register-components {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}

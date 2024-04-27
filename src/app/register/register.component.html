@@ -1,17 +1,23 @@
 <div class="register-page">
-  <h2>Register</h2>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
+    <h2>Register</h2>
+    <div class="register-components">
+      <label>Username</label>
       <input type="text" placeholder="Username" formControlName="username" />
     </div>
-    <div>
+    <div class="register-components">
+      <label>Email</label>
       <input type="email" placeholder="Email" formControlName="email" />
     </div>
-    <div>
+    <div class="register-components">
+      <label>Password</label>
       <input type="password" placeholder="Password" formControlName="password" />
     </div>
-    <div>
+    <div class="register-components">
       <button type="submit">Create account</button>
+    </div>
+    <div class="login-components">
+      <a routerLink="/login">Log in</a>
     </div>
   </form>
 </div>
