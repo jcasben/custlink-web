@@ -3,16 +3,17 @@ import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angula
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../enviroments/environment";
 import {AuthService} from "../auth/auth.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {AuthResponse} from "../auth/AuthResponse";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        RouterLink
+    ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
