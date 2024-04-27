@@ -1,12 +1,18 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, TemplateRef} from '@angular/core';
 import {Link} from "./Link";
 import {LinkService} from "./link.service";
 import {environment} from "../../enviroments/environment";
+import {NgOptimizedImage} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-link',
   standalone: true,
-  imports: [],
+  imports: [
+    NgOptimizedImage,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './link.component.html',
   styleUrl: './link.component.css'
 })
@@ -15,6 +21,7 @@ export class LinkComponent implements OnInit {
   links: Link[] = [];
   linkService = inject(LinkService);
   serverUrl = environment.apiBaseUrl;
+  public editLink: Link | undefined;
 
   ngOnInit() {
     this.getLinks();
@@ -55,5 +62,17 @@ export class LinkComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
     alert('Link copied to clipboard');
+  }
+
+  onSubmit(): void {
+
+  }
+
+  edit(): void {
+
+  }
+
+  public onOpenModal(link: Link, mode: string): void {
+
   }
 }
