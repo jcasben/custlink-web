@@ -1,0 +1,56 @@
+h3 {
+  margin: 0;
+}
+
+p {
+  max-width: 70%;
+}
+
+.link-component {
+  border: 2px solid antiquewhite;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  max-width: 50%;
+}
+
+.link-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.deleteButton {
+  background: orangered;
+  margin-left: 10px;
+}
+
+.editButton {
+  background: cornflowerblue;
+}
+
+.link-buttons,
+.copyButton,
+button {
+  margin-left: auto;
+}
+
+.copyButton,
+.deleteButton,
+.editButton {
+  border: none;
+  border-radius: 5px;
+}
+
+/* Modal styles */
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background: #18172b;
+}
+
+.close {
+  color: antiquewhite;
+}
