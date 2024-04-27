@@ -1,12 +1,14 @@
+<app-header />
 @if (authService.currentUserSig() === null) {
-  <button routerLink="/register">Register</button>
-  <button routerLink="/login">Log in</button>
-} @else if (authService.currentUserSig()) {
   <div>
-    <h1>{{ authService.currentUserSig()?.username }}</h1>
+    <span routerLink="/register">Create an account</span> or <span routerLink="/login">login</span> to access your dashboard
   </div>
-  <div>
-    <button (click)="logout()">Log out</button>
+} @else if (authService.currentUserSig()) {
+  <div class="dashboard-container">
+    <h2>{{ authService.currentUserSig()?.username }}'s dashboard</h2>
+    <button class="createButton">
+      <img ngSrc="assets/images/plus.svg" alt="Create link" height="24" width="24">
+    </button>
   </div>
   <app-link />
 }
