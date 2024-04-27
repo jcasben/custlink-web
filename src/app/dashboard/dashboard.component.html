@@ -6,9 +6,120 @@
 } @else if (authService.currentUserSig()) {
   <div class="dashboard-container">
     <h2>{{ authService.currentUserSig()?.username }}'s dashboard</h2>
-    <button class="createButton">
+    <button class="createButton" (click)="onOpenModal(undefined, 'add')">
       <img ngSrc="assets/images/plus.svg" alt="Create link" height="24" width="24">
     </button>
   </div>
-  <app-link />
+  <div id="main-container">
+    @if (links?.length == 0) {
+      <div class="col-lg-12 col-md-12 col-xl-12">
+        <div class="alert alert-info" role="alert">
+          <h4 class="alert-heading">NO LINKS AVAILABLE!</h4>
+          <p>Seems that you don't have any links yet. Create a new one pressing the "+" button!</p>
+        </div>
+      </div>
+    }
+    @for (link of links; track $index) {
+      <div class="link-component">
+        <div class="link-container">
+          <h3>{{ link.owner }}/{{link.name}}</h3>
+          <button class="copyButton" (click)="copyLink(link)">
+            <img ngSrc="assets/images/clipboard-copy.svg" alt="Copy custom link" height="24" width="24">
+          </button>
+        </div>
+        <div class="link-container">
+          <p class="url">{{ link.url }}</p>
+          <div class="link-buttons">
+            <button class="editButton" (click)="onOpenModal(link, 'edit')" >
+              <img ngSrc="assets/images/square-pen.svg" alt="Edit link" height="24" width="24">
+            </button>
+            <button class="deleteButton" (click)="onOpenModal(link, 'delete')">
+              <img ngSrc="assets/images/trash-2.svg" alt="Delete link" height="24" width="24">
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 }
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editLinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editLinkLabel">Edit Link {{ editedLink?.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div>
+            <label>Name</label>
+            <input type="text" formControlName="name" />
+          </div>
+          <div>
+            <label>URL</label>
+            <input type="text" formControlName="url" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="editLink()" type="button" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- create Link Modal -->
+<div class="modal fade" id="createLinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createLinkLabel">New Link</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <div>
+            <label>Name</label>
+            <input type="text" formControlName="name" placeholder="Link name" />
+          </div>
+          <div>
+            <label>URL</label>
+            <input type="text" formControlName="url" placeholder="Link url" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="createLink()" type="button" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete Link Modal -->
+<div class="modal fade" id="deleteLinkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteLinkLabel">Delete link {{ editedLink?.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete link {{ deletedLink?.name }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button (click)="deleteLink(deletedLink!.name)" type="button" data-dismiss="modal" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
