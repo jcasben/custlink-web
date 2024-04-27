@@ -12,3 +12,26 @@ button {
   border: none;
   border-radius: 5px;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  text-align: center;
+  background: darkslateblue;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  padding-bottom: 6.5rem;
+  box-sizing: inherit;
+}
