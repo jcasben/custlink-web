@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {environment} from "../../enviroments/environment";
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthResponse} from "../auth/AuthResponse";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
 import {User} from "../user/User";
 
@@ -12,7 +12,8 @@ import {User} from "../user/User";
   templateUrl: './login.component.html',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   styleUrls: ['./login.component.css']
 })

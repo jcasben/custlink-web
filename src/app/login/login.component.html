@@ -1,15 +1,20 @@
 <!-- login.component.html -->
 <div class="login-page">
-  <h2>Log In</h2>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <h2>Log In</h2>
+    <div class="login-components">
+      <label>Username</label>
       <input type="text" placeholder="Username" formControlName="username" />
     </div>
-    <div>
+    <div class="login-components">
+      <label>Password</label>
       <input type="password" placeholder="Password" formControlName="password" />
     </div>
-    <div>
+    <div class="login-components">
       <button type="submit">Log In</button>
+    </div>
+    <div class="login-components">
+      <a routerLink="/register">Create an account</a>
     </div>
   </form>
 </div>
