@@ -1,0 +1,18 @@
+<header>
+  <div class="header-container">
+    <h1>Custlink</h1>
+    @if (authService.currentUserSig() === null) {
+      <div class="buttons">
+        <button routerLink="/register">Register</button>
+        <button routerLink="/login">Log in</button>
+      </div>
+    } @else if (authService.currentUserSig()) {
+      <div class="buttons">
+        <button routerLink="/dashboard">Dashboard</button>
+        <button (click)="logout()">
+          <img ngSrc="assets/images/log-out.svg" alt="Logout" height="24" width="24">
+        </button>
+      </div>
+    }
+  </div>
+</header>
