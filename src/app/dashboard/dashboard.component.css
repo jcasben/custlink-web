@@ -10,3 +10,98 @@
   justify-content: left;
   padding: 10px;
 }
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body input {
+  display: table-cell;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 90%;
+  border: 2px solid antiquewhite;
+}
+
+.modal-body form {
+  display: table;
+}
+
+.modal-body div {
+  display: table-row;
+}
+
+.modal-body label {
+  display: table-cell;
+  padding: 5px;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background: #18172b;
+}
+
+.close {
+  color: antiquewhite;
+}
+
+h3 {
+  margin: 0;
+  max-width: 70%;
+  overflow: scroll;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  max-width: 70%;
+  height: 100%;
+  overflow: scroll;
+  margin-bottom: 10px;
+}
+
+.link-component {
+  border: 2px solid antiquewhite;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px;
+  max-width: 50%;
+}
+
+.link-container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  horiz-align: center;
+  padding: 10px;
+}
+
+.deleteButton {
+  background: orangered;
+  margin-left: 10px;
+}
+
+.editButton {
+  background: cornflowerblue;
+}
+
+.link-buttons,
+.copyButton,
+button {
+  margin-left: auto;
+}
+
+.copyButton,
+.deleteButton,
+.editButton {
+  border: none;
+  border-radius: 5px;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
