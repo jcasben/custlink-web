@@ -1,0 +1,12 @@
+.createButton {
+  background: lightgreen;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+}
